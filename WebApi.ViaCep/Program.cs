@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Refit;
+using WebApi.ViaCep.Context;
 using WebApi.ViaCep.Repository.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,8 @@ builder.Services.AddRefitClient<ICepRepository>().ConfigureHttpClient(c =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<CepDbContext>(opt => opt.UseInMemoryDatabase("TarefasDB"));
 
 var app = builder.Build();
 

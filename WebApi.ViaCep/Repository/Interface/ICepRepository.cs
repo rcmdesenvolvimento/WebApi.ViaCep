@@ -1,11 +1,12 @@
 ﻿using Refit;
 using WebApi.ViaCep.Dto;
+using WebApi.ViaCep.Model;
 
 namespace WebApi.ViaCep.Repository.Interface
 {
     public interface ICepRepository
     {
         [Get("/ws/{cep}/json")]
-        Task<CepModelDTO> GetCepBrasil(string cep);
+        Task<CepModel> GetCepBrasil(string cep);
     }
 }
